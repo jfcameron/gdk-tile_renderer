@@ -2,6 +2,8 @@
 
 cmake_minimum_required(VERSION 3.9 FATAL_ERROR)
 
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/simple-glfw")
+
 jfc_project(executable
     NAME "gdktilerenderer-demo"
     VERSION 1.0
@@ -14,11 +16,14 @@ jfc_project(executable
 
     PRIVATE_INCLUDE_DIRECTORIES
         "${gdktilerenderer_INCLUDE_DIRECTORIES}"
+        "${simpleglfw_INCLUDE_DIRECTORIES}"
 
     LIBRARIES
         "${gdktilerenderer_LIBRARIES}"
+        "${simpleglfw_LIBRARIES}"
 
     DEPENDENCIES
         "gdktilerenderer"
+        "simpleglfw"
 )
 

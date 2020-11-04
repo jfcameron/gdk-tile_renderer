@@ -15,25 +15,26 @@ add_subdirectory(thirdparty)
 jfc_project(library
     NAME "gdktilerenderer"
     VERSION 0.0
-    DESCRIPTION "n*m tile renderer"
+    DESCRIPTION "n*m tile renderer for gdk-graphics project"
     C++_STANDARD 17
     C_STANDARD 90
     TYPE STATIC
 
     PUBLIC_INCLUDE_DIRECTORIES
         ${CMAKE_CURRENT_SOURCE_DIR}/include
+        "${gdkgraphics_INCLUDE_DIRECTORIES}"
 
     PRIVATE_INCLUDE_DIRECTORIES
         ${CMAKE_CURRENT_SOURCE_DIR}/src/include
 
     SOURCE_LIST
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/stub.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/tile_renderer.cpp
 
-#    LIBRARIES
-#       ${dependencyname_LIBRARIES} 
+    LIBRARIES
+       "${gdkgraphics_LIBRARIES}"
 
-#    DEPENDENCIES
-#        "example"
+    DEPENDENCIES
+        "gdkgraphics"
 )
 
 if (JFC_BUILD_DEMO)
@@ -47,3 +48,4 @@ endif()
 if (JFC_BUILD_DOCS)
     add_subdirectory(docs)
 endif()
+
